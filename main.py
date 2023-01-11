@@ -18,7 +18,7 @@ class BSOption:
 
     def d1(self):
 
-        return (np.log(self.S / self.K) + (self.r - self.q + 0.5*self.v**2)) * self.T / (self.v * np.sqrt(self.T))
+        return (np.log(self.S / self.K) + (self.r - self.q + 0.5 * self.v ** 2)) * self.T / (self.v * np.sqrt(self.T))
 
     def d2(self):
 
@@ -34,6 +34,6 @@ class BSOption:
 
             return N(-self.d2()) * self.K * np.exp(-self.r * self.T) - N(-self.d1()) * self.S
 
-        
+
 
 
