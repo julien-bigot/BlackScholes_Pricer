@@ -3,8 +3,6 @@ from scipy.stats import norm
 
 N = norm.cdf
 
-"this is a test"
-
 
 class BSOption:
 
@@ -35,6 +33,21 @@ class BSOption:
         elif self.CP == "P":
 
             return N(-self.d2()) * self.K * np.exp(-self.r * self.T) - N(-self.d1()) * self.S
+
+    def delta(self):
+
+        if self.CP == "C":
+
+            return N(self.d1() * np.exp(-self.q * self.T))
+
+        if self.CP == "P":
+
+            return (N(self.d1() - 1)) * np.exp(-self.q * self.T)
+
+        else:
+
+            print("please enter either C or P")
+
 
 
 
